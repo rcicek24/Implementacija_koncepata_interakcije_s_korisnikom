@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 
-import 'Toast.dart';
+import 'toast.dart';
 
 void main() {
   runApp(Aplikacija());
 }
 
 class Aplikacija extends StatelessWidget {
+  const Aplikacija({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -18,6 +20,8 @@ class Aplikacija extends StatelessWidget {
 }
 
 class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,7 +44,7 @@ class HomeScreen extends StatelessWidget {
           onTap: () {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => Toast()),
+              MaterialPageRoute(builder: (context) => ToastScreen()),
             );
           },
         ),
