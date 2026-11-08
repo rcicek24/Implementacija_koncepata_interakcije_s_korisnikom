@@ -63,7 +63,7 @@ class _SnackBarScreen extends State<SnackBarScreen> {
 
   void zamijeniSnack() {
     ScaffoldMessenger.of(context)
-      ..hideCurrentSnackBar()
+      ..clearSnackBars()
       ..showSnackBar(
         const SnackBar(content: Text("Prethodna poruka zamijenjena")),
       );
