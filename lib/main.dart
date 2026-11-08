@@ -6,6 +6,8 @@ import 'snack_bar.dart';
 
 import 'fab_kontrole.dart';
 
+import 'user_dialog.dart';
+
 void main() {
   runApp(Aplikacija());
 }
@@ -78,6 +80,12 @@ class HomeScreen extends StatelessWidget {
           leading: Icon(Icons.chat_bubble_outline),
           title: Text("Korisnički dijalozi"),
           trailing: Icon(Icons.arrow_forward_ios),
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => UserDialogScreen()),
+            );
+          },
         ),
         ListTile(
           leading: Icon(Icons.notifications_none),
