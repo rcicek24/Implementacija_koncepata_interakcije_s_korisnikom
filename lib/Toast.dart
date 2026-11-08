@@ -18,10 +18,10 @@ class _ToastScreenState extends State<ToastScreen> {
   }
 
   void kratkiToast() =>
-      Fluttertoast.showToast(msg: "Tost🍞", toastLength: Toast.LENGTH_SHORT);
+      Fluttertoast.showToast(msg: "Toast🍞", toastLength: Toast.LENGTH_SHORT);
 
   void dugiToast() => Fluttertoast.showToast(
-    msg: "Neki malo duzi Tost🍞🍞🍞",
+    msg: "Neki malo duzi Toast🍞🍞🍞",
     toastLength: Toast.LENGTH_LONG,
   );
 

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 import 'toast.dart';
 
+import 'snack_bar.dart';
+
 void main() {
   runApp(Aplikacija());
 }
@@ -52,6 +54,12 @@ class HomeScreen extends StatelessWidget {
           leading: Icon(Icons.info_outline_rounded),
           title: Text("SnackBar"),
           trailing: Icon(Icons.arrow_forward_ios),
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => SnackBarScreen()),
+            );
+          },
         ),
         ListTile(
           leading: Icon(Icons.add_circle_outline),
