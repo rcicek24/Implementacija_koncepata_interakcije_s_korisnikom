@@ -4,6 +4,8 @@ import 'toast.dart';
 
 import 'snack_bar.dart';
 
+import 'fab_kontrole.dart';
+
 void main() {
   runApp(Aplikacija());
 }
@@ -65,6 +67,12 @@ class HomeScreen extends StatelessWidget {
           leading: Icon(Icons.add_circle_outline),
           title: Text("FAB kontrole"),
           trailing: Icon(Icons.arrow_forward_ios),
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => FABControlScreen()),
+            );
+          },
         ),
         ListTile(
           leading: Icon(Icons.chat_bubble_outline),
