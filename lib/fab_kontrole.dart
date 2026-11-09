@@ -42,6 +42,7 @@ class _FABControlScreen extends State<FABControlScreen> {
         ],
       ),
       floatingActionButton: FloatingActionButton(
+        tooltip: "Dodaj zadatak",
         onPressed: dodajIssue,
         child: Icon(Icons.add),
       ),
