@@ -173,7 +173,7 @@ class _UserDialogScreen extends State<UserDialogScreen> {
                 onPressed: () {
                   setState(() {
                     zadatak = true;
-                    zadDovrsen = true;
+                    zadDovrsen = false;
                     prioritet = "Nije odabran";
                   });
                 },

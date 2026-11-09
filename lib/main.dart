@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:interakcija_s_korisnikom/notification.dart';
 
 import 'toast.dart';
 
@@ -8,7 +10,11 @@ import 'fab_kontrole.dart';
 
 import 'user_dialog.dart';
 
-void main() {
+import 'simple_notification.dart';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await notificationService.initialize();
   runApp(Aplikacija());
 }
 
@@ -18,6 +24,7 @@ class Aplikacija extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      builder: FToastBuilder(),
       debugShowCheckedModeBanner: false,
       title: "Interakcija s korisnikom",
       home: HomeScreen(),
@@ -91,6 +98,14 @@ class HomeScreen extends StatelessWidget {
           leading: Icon(Icons.notifications_none),
           title: Text("Jednostavne notifikacije"),
           trailing: Icon(Icons.arrow_forward_ios),
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => SimpleNotificationScreen(),
+              ),
+            );
+          },
         ),
         ListTile(
           leading: Icon(Icons.notifications_active_outlined),
