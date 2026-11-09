@@ -12,7 +12,7 @@ import 'user_dialog.dart';
 
 import 'simple_notification.dart';
 
-import 'advanced_notifiaction.dart';
+import 'advanced_notification.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
