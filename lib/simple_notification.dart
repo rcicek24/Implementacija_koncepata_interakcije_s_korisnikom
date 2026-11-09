@@ -20,9 +20,9 @@ class _SimpleNotificationScreen extends State<SimpleNotificationScreen> {
           children: [
             FilledButton(
               onPressed: () {
-                notificationService.showNotification(
+                notificationService.showAdvancedNotifiction(
                   title: "Obavijest o zadatku",
-                  body: "Imaš još 5 dana do predaje prve faze projekta, nemoj zaboraviti ne napraviti neki dio. Pati upute!!!",
+                  body: "Imaš još 5 dana do predaje prve faze projekta, nemoj zaboraviti ne napraviti neki dio. Prati upute!!!",
                 );
               },
               child: Text("Pošalji mi notifikaciju"),

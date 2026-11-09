@@ -12,7 +12,9 @@ import 'user_dialog.dart';
 
 import 'simple_notification.dart';
 
-void main() async {
+import 'advanced_notifiaction.dart';
+
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await notificationService.initialize();
   runApp(Aplikacija());
@@ -111,6 +113,14 @@ class HomeScreen extends StatelessWidget {
           leading: Icon(Icons.notifications_active_outlined),
           title: Text("Složene notifikacije"),
           trailing: Icon(Icons.arrow_forward_ios),
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => AdvancedNotificationScreen(),
+              ),
+            );
+          },
         ),
       ],
     );

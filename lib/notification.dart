@@ -56,6 +56,66 @@ class NotificationService {
     return true;
   }
 
+  Future<bool> showAdvancedNotifiction({
+    int id = 1,
+    String title = " Notification",
+    String body = "This is a notification message",
+  }) async {
+    final android = _notificationsPlugin
+        .resolvePlatformSpecificImplementation<
+          AndroidFlutterLocalNotificationsPlugin
+        >();
+
+    bool dopusteno = await android?.areNotificationsEnabled() ?? false;
+
+    if (!dopusteno) {
+      dopusteno = await android?.requestNotificationsPermission() ?? false;
+    }
+
+    if (!dopusteno) return false;
+
+    const AndroidNotificationDetails androidDetails =
+        AndroidNotificationDetails(
+          "advanced_chanel",
+          "Advanced Chanel",
+          channelDescription: "Obavijest o izradi projekta",
+          importance: Importance.defaultImportance,
+          priority: Priority.defaultPriority,
+          styleInformation: BigPictureStyleInformation(
+            DrawableResourceAndroidBitmap("catworker"),
+            contentTitle: "",
+          ),
+          actions: <AndroidNotificationAction>[
+            AndroidNotificationAction(
+              "ukloni",
+              "Ukloni",
+              showsUserInterface: false,
+              cancelNotification: true,
+            ),
+
+            AndroidNotificationAction(
+              "otvori",
+              "Otvori aplikaciju",
+              showsUserInterface: true,
+              cancelNotification: true,
+            ),
+          ],
+        );
+
+    const NotificationDetails notificationDetails = NotificationDetails(
+      android: androidDetails,
+    );
+
+    await _notificationsPlugin.show(
+      id: id,
+      title: title,
+      body: body,
+      notificationDetails: notificationDetails,
+    );
+
+    return true;
+  }
+
   Future<void> cancelNotification(int id) async {
     await _notificationsPlugin.cancel(id: id);
   }
