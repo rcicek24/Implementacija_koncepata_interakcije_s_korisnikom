@@ -419,4 +419,4 @@ Na kraju sam u datoteci advanced_notification.dart napravio ekran s gumbom koji 
 18. Material Design 3 – Dialogs. https://m3.material.io/components/dialogs/guidelines
 19. Flutter - "Navigate to a new screen and back" - https://docs.flutter.dev/cookbook/navigation/navigation-basics
 20. Flutter - "ShowSnackBar method" - https://api.flutter.dev/flutter/material/ScaffoldMessengerState/showSnackBar.html
-21. Dart - "Asynchronous programming" - https://api.flutter.dev/flutter/material/ScaffoldMessengerState/showSnackBar.html
+21. Dart - "Asynchronous programming" - https://dart.dev/language/async 
