@@ -224,7 +224,7 @@ Widget buildToast() => Container(
 ```
 Sve ovo sam prikazao pomoću gumbova kojima na onPress stavio da pozove određenu metodu. Ovako to izgleda
 
-![Toast](/slike/Toast.png)
+![Toast](slike/Toast.png)
 
 ## SnackBar
 Za razliku od Toast poruka, SnackBar može sadržavati akcijski gumb kojim korisnik može napraviti dodatnu radnju. SnackBar nije potrebno instalirati dodatan paket jer je već dio Flutterove Material biblioteke. U datoteci snack_bar napravio sam klasu SnackBarScreen, u kojoj sam implementirao tri primjera SnackBar poruka.Prvi primjer omogućuje korisniku unos bilješke pomoću TextField komponente. Za dohvaćanje unesenog teksta koristio sam TextEditingController. Ako korisnik ne unese ništa, prikazuje se poruka o pogrešci. Ako unese tekst, prikazuje se SnackBar s akcijskim gumbom „Prikaži”.
@@ -248,7 +248,7 @@ ScaffoldMessenger.of(context).showSnackBar(
   ),
 );
 ```
-Za prikaz koristimo ScaffoldMessenger.of(context).showSnackBar(), dok SnackBarAction dodaje akcijski gumb. Kada korisnik klikne „Prikaži”, otvara se AlertDialog s tekstom bilješke. Drugi primjer samo ispiše neki tekst kojem sam stavio da traje 10 sekundi prije nego što se makne. Treći primjer pokazuje kako zamjeniti prethodnu snack poruku kada na primjer kliknemo 10 puta na drugi gumb svaki klik na gumb stavi u red čekanja poruku. Kako bismo to mogli na primjer spriječiti možemo napraviti takav gumb kakav sam ja napravio koji će zamjneiti te poruke i isprazniti taj red čekanje.
+Za prikaz koristimo ScaffoldMessenger.of(context).showSnackBar(), dok SnackBarAction dodaje akcijski gumb. Kada korisnik klikne „Prikaži”, otvara se AlertDialog s tekstom bilješke. Drugi primjer samo ispiše neki tekst kojem sam stavio da traje 10 sekundi prije nego što se makne. Treći primjer pokazuje kako zamjeniti prethodnu snack poruku kada na primjer kliknemo 10 puta na drugi gumb svaki klik na gumb stavi u red čekanja poruku. Kako bismo to mogli na primjer spriječiti možemo napraviti takav gumb kakav sam ja napravio koji će zamjeniti te poruke i isprazniti taj red čekanje.
 ```dart
 ScaffoldMessenger.of(context)
   ..clearSnackBars()
@@ -260,13 +260,13 @@ ScaffoldMessenger.of(context)
 ```
 clearSnackBars() uklanja prethodne poruke iz reda čekanja i zatvara trenutačnu, nakon čega se prikazuje nova poruka. Ovdje koristimo Dartov operator .. kako bismo pozvali više metoda na istom objektu.
 
-![snackbar3](/slike/snackbar3.png)
+![snackbar3](slike/snackbar3.png)
 
-![snackbar4](/slike/snackbar4.png)
+![snackbar4](slike/snackbar4.png)
 
-![snackbar](/slike/snackbar.png)
+![snackbar](slike/snackbar.png)
 
-![snackbar2](/slike/snackbar2.png)
+![snackbar2](slike/snackbar2.png)
 
 ## FAB kontrole
 FAB (Floating Action Button) istaknuti je gumb koji služi za izvršavanje glavne radnje na određenom ekranu. Prema Material preporukama, u pravilu se koristi jedan FAB po ekranu. Ima 3 vrsta FAB gumbova to su FAB, srednji FAB i veliki FAB prema m3 design. Postoji i mali FAB ali on se više ne preporučuje. Ja sam koristio samo obični FAB. U datoteci fab_kontrole napravio sam primjer dodavanja stavki u listu. Za spremanje stavki koristio sam listu issues, a pomoću metode dodajIssue() dodajem nove stavke.
@@ -319,17 +319,18 @@ void infoDialog() {
 }
 ```
 
-Pomoću metode showDialog() prikazuje se dijalog, a Navigator.pop() zatvara služi za zatvranje dijaloga. Kod dijaloga za brisanje napravio sam mu 2 gumba koji su "Odustani" i "Obriši" i taj gumb obriši sam stavio u crvenu boju zato što je to akcija koja se više neće moći vartiti ali za potrebe primjera kada se obriše napravio sam da možemo vratiti to što smo obrisali kako bi se moglo prikazati sve što želim prikazati. Za odabir prioriteta koristio sam SimpleDialogOption, gdje korisnik može odabrati visoki, srednji ili niski prioritet. Odabrana vrijednost vraća se pomoću Navigator.pop(context, vrijednost) i prikazuje na ekranu. 
+Pomoću metode showDialog() prikazuje se dijalog, a Navigator.pop() zatvara služi za zatvaranje dijaloga. Kod dijaloga za brisanje napravio sam mu 2 gumba koji su "Odustani" i "Obriši" i taj gumb obriši sam stavio u crvenu boju zato što je to akcija koja se više neće moći vartiti ali za potrebe primjera kada se obriše napravio sam da možemo vratiti to što smo obrisali kako bi se moglo prikazati sve što želim prikazati. Za odabir prioriteta koristio sam SimpleDialogOption, gdje korisnik može odabrati visoki, srednji ili niski prioritet. Odabrana vrijednost vraća se pomoću Navigator.pop(context, vrijednost) i prikazuje na ekranu. 
 
-![infoDijalog](/slike/infodijalog.png)
+![infoDijalog](slike/infodijalog.png)
 
-![obrisiDijalog](/slike/obrisidijalog.png)
+![obrisiDijalog](slike/obrisidijalog.png)
 
-![prioritetDijalog](/slike/prioritetdijalog.png)
+![prioritetDijalog](slike/prioritetdijalog.png)
 
 ## Jednostavne notifikacije
 Sistemske notifikacije su obavijesti koje Android može prikazati i kada korisnik nije unutar aplikacije. Jednostavna notifikacija sadrži ikonu, naslov i tekst poruke. Za njihovu implementaciju koristio sam paket flutter_local_notifications, koji se treba instalirati naredbom `flutter pub add flutter_local_notifications`
-nakon toga sam importao to u dadoteku notification i prije implementacije notifikacija potrebno je prvo provjeriti dopuštenje za korištenje notifikacija zato što Android verzina 13 i novije verzije zahtjevaju korisnika da prihvati obavijesti kako bi mogao uopće dobiti obavijest zato sam prvo napravio tu provjeru.
+nakon toga sam importao to u dadoteku notification i prije implementacije notifikacija potrebno je prvo provjeriti dopuštenje za korištenje notifikacija zato što Android verzija 13 i novije verzije zahtjevaju korisnika da prihvati obavijesti kako bi mogao uopće dobiti obavijest zato sam prvo napravio tu provjeru.Prilikom instalacije paketa flutter_local_notifications potrebno je provjeriti i Android konfiguraciju projekta. Za verziju 23.0.0 paket zahtijeva Android compileSdk 37 ili noviji, odgovarajuću verziju Android Gradle Plugina te uključenu podršku za core library desugaring.
+
 ```dart
 bool dopusteno = await android?.areNotificationsEnabled() ?? false;
 
@@ -354,10 +355,10 @@ await _notificationsPlugin.show(
 
 id je identifikator notifikacije, title njezin naslov, body tekst poruke, a notificationDetails sadrži postavke prikaza. U datoteci simple_notification napravio sam gumb koji poziva notificationService.showNotification() i šalje korisniku primjer podsjetnika o predaji projekta.
 
-![Jednostavne notifikacije](/slike/jednostavnanotifikacija.png)
+![Jednostavne notifikacije](slike/jednostavnanotifikacija.png)
 
 ## Složene notifikacije
-Složene notifikacije su iste kao i jednostavne samo daju mogućmost sadržavanja slika i gumbova. Ovdje se opet koristi `flutter_local_notifications` paket za notifikacije. Unutar klase NotificationService dodao sam metodu showAdvancedNotifiction(), koja prikazuje složenu notifikaciju, a za prikaz slike koristio sam BigPictureStyleInformation 
+Složene notifikacije su iste kao i jednostavne samo daju mogućnost sadržavanja slika i gumbova. Ovdje se opet koristi `flutter_local_notifications` paket za notifikacije. Unutar klase NotificationService dodao sam metodu showAdvancedNotifiction(), koja prikazuje složenu notifikaciju, a za prikaz slike koristio sam BigPictureStyleInformation 
 ```dart
 styleInformation: BigPictureStyleInformation(
   DrawableResourceAndroidBitmap("catworker"),
@@ -384,8 +385,8 @@ actions: <AndroidNotificationAction>[
 ],
 ```
 
-Pomoću prvog gumba samo mičemo notifikaciju dok drugi gumb nam otvara aplikaciju. `cancelNotification` određuje hoće li se notifikacija ukloniti nakon korisničke akcije, a `showsUserInterface` određuje treba li prikazati korisničko sučelje aplikacije. Kako bih mogao koristiti akcijske gumbime u AndroidManifest.xml, unutar elementa <application>, dodao sam receiver
-```dart
+Pomoću prvog gumba samo mičemo notifikaciju dok drugi gumb nam otvara aplikaciju. `cancelNotification` određuje hoće li se notifikacija ukloniti nakon korisničke akcije, a `showsUserInterface` određuje treba li prikazati korisničko sučelje aplikacije. Kako bih mogao koristiti akcijske gumbime u AndroidManifest.xml, unutar elementa `<application>`, dodao sam receiver
+```xml
 <receiver
     android:name="com.dexterous.flutterlocalnotifications.ActionBroadcastReceiver"
     android:exported="false" />
@@ -393,4 +394,29 @@ Pomoću prvog gumba samo mičemo notifikaciju dok drugi gumb nam otvara aplikaci
 
 Na kraju sam u datoteci advanced_notification.dart napravio ekran s gumbom koji poziva metodu showAdvancedNotifiction().
 
-![Složene notifikacije](/slike/slozenanotifikacija.png)
+![Složene notifikacije](slike/slozenanotifikacija.png)
+
+
+## Literatura
+
+1. Flutter experts - "Custom Toast Message in Flutter" - https://flutterexperts.com/custom-toast-message-in-flutter/
+2. Pub.dev - "fluttertoast" - https://pub.dev/packages/fluttertoast
+3. GeeksForGeek - "Fluttertoast in Flutter" - https://www.geeksforgeeks.org/flutter/fluttertoast-in-flutter/
+4. Androidride - "4 Flutter ListView Navigation Examples With Tutorial" - https://androidride.com/flutter-listview-navigation/
+5. Flutter docs - "Display a snackbar" - https://docs.flutter.dev/cookbook/design/snackbars
+6. Flutter docs - "Retrieve the value of a text field" - https://docs.flutter.dev/cookbook/forms/retrieve-input
+7. Flutter - "FloatingActionButton class" - https://api.flutter.dev/flutter/material/FloatingActionButton-class.html
+8. M3 material - "FloatingActionButton" - https://m3.material.io/components/floating-action-button/overview
+9. Flutter - "Dialog class" - https://api.flutter.dev/flutter/material/Dialog-class.html
+10. Flutter - "AlertDialog class" - https://api.flutter.dev/flutter/material/AlertDialog-class.html
+11. Flutter - "Simple Dialog class" - https://api.flutter.dev/flutter/material/SimpleDialog-class.html
+12. WTF code - "Local notification in flutter" - https://codewtf.com/local-notifications-in-flutter/
+13. pub.dev - "Flutter local notifiactions" - https://pub.dev/packages/flutter_local_notifications#notification-payload
+14. Android Developers - "receiver" - https://developer.android.com/guide/topics/manifest/receiver-element
+15. Medium - "Notifications in Flutter" - https://medium.com/@codernta/notifications-in-flutter-a-practical-guide-to-different-types-and-how-to-implement-them-easily-f66bdcd3b6b5
+16. Material Design 3 – Snackbar. https://m3.material.io/components/snackbar/guidelines
+17. Material Design 3 – Floating action button. https://m3.material.io/components/floating-action-button/guideline
+18. Material Design 3 – Dialogs. https://m3.material.io/components/dialogs/guidelines
+19. Flutter - "Navigate to a new screen and back" - https://docs.flutter.dev/cookbook/navigation/navigation-basics
+20. Flutter - "ShowSnackBar method" - https://api.flutter.dev/flutter/material/ScaffoldMessengerState/showSnackBar.html
+21. Dart - "Asynchronous programming" - https://api.flutter.dev/flutter/material/ScaffoldMessengerState/showSnackBar.html
